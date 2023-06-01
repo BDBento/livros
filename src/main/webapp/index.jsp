@@ -21,16 +21,12 @@
  
  
  <div class="container">
-
-       
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/LivroControle?acao=novo">Cadastrar</a>
         
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/LivroControle?acao=listar">Listar</a>
-
-     
  </div>
 
-
+ <div>PO nenhuma introdução!!</div>
 	
 	
 	

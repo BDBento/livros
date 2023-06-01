@@ -80,7 +80,7 @@ public class LivroControle extends HttpServlet {
 		
 		livroDAO.inserirLivro(livro);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/LivroControle?acao=listar");
 		
 		dispatcher.forward(request, response);
 	}

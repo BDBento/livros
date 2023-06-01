@@ -45,12 +45,11 @@
 					<div class="row mb-3">
 						<label class="col-sm-1 col-form-label">categoria</label>
 						<div class="col-sm-2">
-							<input class="form-control" type="text" name="Categoria">
+							<input class="form-control" type="text" name="categoria">
 						</div>
 					</div>
 
 					<input class="btn btn-primary" type="submit" value="Gravar" />
-					<a class="btn btn-primary" href="${pageContext.request.contextPath}/LivroControle?acao=listar">Listar</a>
 				</form>
 				        
 			</div>
