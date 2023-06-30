@@ -15,6 +15,7 @@ public class Livro {
 	private String nome;
 	private String autor;
 	private String categoria;
+
 	
 	public Livro() {
 		super();
@@ -26,6 +27,7 @@ public class Livro {
 		this.nome = nome;
 		this.autor = autor;
 		this.categoria = categoria;
+	
 	}
 
 	public Long getId() {
@@ -48,7 +50,7 @@ public class Livro {
 		return autor;
 	}
 
-	public void setModelo(String autor) {
+	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
@@ -59,7 +61,7 @@ public class Livro {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	
-	
 
+
+		
 }

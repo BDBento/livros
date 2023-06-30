@@ -78,6 +78,78 @@ public class LivroDAO {
 		desconectar();
 		return listaLivros;
 	}
+	
+	
+	public boolean apagarLivro(Livro livro) throws SQLException {
+	
+		String sql = "DELETE FROM livro WHERE id = ?";
+		
+		conectar();
+        
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setLong(1, livro.getId());
+        
+        boolean linhaApagada = statement.executeUpdate() > 0;
+        statement.close();
+        
+        desconectar();
+        
+        return linhaApagada;
+           
+        }
+	
+	
+	public Livro buscarLivro(long id) throws SQLException {
+	Livro livro = null;
+	
+	String sql = "SELECT * FROM livro WHERE id = ?";
+	
+	conectar();
+	
+	PreparedStatement statement = connection.prepareStatement(sql);
+    statement.setLong(1, id);
+	
+    ResultSet resultSet = statement.executeQuery();
+    
+    if (resultSet.next()) {
+    	
+		String nome = resultSet.getString("nome");
+		String autor = resultSet.getString("autor");
+		String categoria = resultSet.getString("categoria"); 
+		
+		livro = new Livro(nome, autor, categoria);
+		livro.setId(id);		
+		
+	}
+    resultSet.close();
+    statement.close();
+    
+    desconectar();
+    
+    return livro;
+	}
+	
+	public boolean editarLivro(Livro livro) throws SQLException {
+		String sql = "UPDATE livro SET nome = ?, autor = ?, categoria = ?"
+				+ " WHERE id = ?";
+		
+		conectar();
+	
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, livro.getNome());
+		statement.setString(2, livro.getAutor());
+		statement.setString(3, livro.getCategoria());
+		statement.setLong(4, livro.getId());
 
+		boolean linhaAlterada  = statement.executeUpdate() > 0;
+		statement.close();
+		desconectar();
+		
+		return linhaAlterada;
+	}
 }
+	
+
+
 

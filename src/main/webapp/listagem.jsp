@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>Usuários</title>
+<title>livros</title>
 
 
 <script type="text/javascript"
@@ -19,16 +19,16 @@
 
 </head>
 <body>
-	
-	<div class="container">
-		<a class="btn btn-primary" href="${pageContext.request.contextPath}/LivroControle?acao=novo">Cadastrar</a>
+
+	<div class="">
+		<jsp:include page="/publica/publica-nav.jsp" />
 	</div>
 
 	<div class="container">
 		<div class="row">
 
 			<div class="col">
-				
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -39,21 +39,23 @@
 						</tr>
 					</thead>
 					<tbody>
-					
+
 						<c:forEach var="ca" items="${listaLivros}">
 							<tr>
 								<td><c:out value="${ca.id}" /></td>
 								<td><c:out value="${ca.nome}" /></td>
 								<td><c:out value="${ca.autor}" /></td>
-								<td><c:out value="${ca.categoria}" /></td>							
+								<td><c:out value="${ca.categoria}" /></td>								
+								<td><a class="btn btn-primary btn-sm" href="${pageContext.request.contextPath}/LivroControle?acao=editar&id=<c:out value="${ca.id}" />">Editar</a></td>
+								<td><a class="btn btn-danger btn-sm" href="${pageContext.request.contextPath}/LivroControle?acao=apagar&id=<c:out value="${ca.id}" />">Apagar</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				
+
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>
